@@ -9,7 +9,7 @@ import { ConnectionStatus } from './components/ConnectionStatus';
 
 function App() {
   const { mediaData, loading, error } = useMediaData();
-  const { favorites, toggleFavorite, isFavorite } = useFavorites();
+  const { favorites, isFavorite } = useFavorites();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
 

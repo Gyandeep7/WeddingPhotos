@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchPCloudImages } from '../utils/pcloudParser';
 import { testPCloudConnection, debugPCloudContent } from '../utils/pcloudTest';
-import { fetchWithCorsProxy, fetchWithCustomHeaders, getSampleImages } from '../utils/pcloudFallback';
 
 export interface MediaItem {
   id: string;
@@ -45,17 +44,17 @@ export const useMediaData = () => {
           
           try {
             // Method 2: Use CORS proxy
-            pcloudImages = await fetchWithCorsProxy(pcloudUrl);
+            // pcloudImages = await fetchWithCorsProxy(pcloudUrl); // This line is removed
           } catch (corsError) {
             console.warn('CORS proxy failed, trying custom headers...');
             
             try {
               // Method 3: Use custom headers
-              pcloudImages = await fetchWithCustomHeaders(pcloudUrl);
+              // pcloudImages = await fetchWithCustomHeaders(pcloudUrl); // This line is removed
             } catch (headerError) {
               console.warn('All pCloud methods failed, using sample images...');
               // Method 4: Use sample images
-              pcloudImages = getSampleImages();
+              // pcloudImages = getSampleImages(); // This line is removed
             }
           }
         }
