@@ -125,9 +125,9 @@ const isImageUrl = (url: string): boolean => {
 
 export const fetchPCloudImages = async (pcloudUrl: string): Promise<PCloudImage[]> => {
   try {
-    // Use Vite's proxy to avoid CORS issues
-    const proxyUrl = `/pcloud-proxy${pcloudUrl.replace('https://u.pcloud.link', '')}`;
-    const response = await fetch(proxyUrl);
+    // Use Vercel serverless function to avoid CORS issues in production
+    const apiUrl = `/api/pcloud-proxy?url=${encodeURIComponent(pcloudUrl)}`;
+    const response = await fetch(apiUrl);
     
     if (!response.ok) {
       throw new Error(`Failed to fetch pCloud data: ${response.status}`);
