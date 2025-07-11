@@ -1,5 +1,4 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import fetch from 'node-fetch';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { url } = req.query;
@@ -9,7 +8,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    // Forward the request to the actual pCloud URL
     const response = await fetch(url, {
       headers: {
         'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0',

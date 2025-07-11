@@ -125,17 +125,17 @@ const isImageUrl = (url: string): boolean => {
 
 export const fetchPCloudImages = async (pcloudUrl: string): Promise<PCloudImage[]> => {
   try {
-    // Use Vercel serverless function to avoid CORS issues in production
+    // Always use the Vercel serverless proxy
     const apiUrl = `/api/pcloud-proxy?url=${encodeURIComponent(pcloudUrl)}`;
     const response = await fetch(apiUrl);
-    
+
     if (!response.ok) {
       throw new Error(`Failed to fetch pCloud data: ${response.status}`);
     }
-    
+
     const htmlContent = await response.text();
     return parsePCloudContent(htmlContent);
-    
+
   } catch (error) {
     console.error('Error fetching pCloud images:', error);
     throw error;
