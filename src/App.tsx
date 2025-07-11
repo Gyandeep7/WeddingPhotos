@@ -104,7 +104,7 @@ function App() {
             {/* Couple Names */}
             <div className="mb-6">
               <h1 className="text-5xl md:text-6xl font-script bg-gradient-to-r from-blue-500 via-red-500 to-blue-600 bg-clip-text text-transparent animate-fade-in">
-                Gyandeep & Shirissha
+                Gyandeep & Shirisha
               </h1>
               <div className="flex items-center justify-center gap-4 mt-4">
                 <div className="h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent flex-1 max-w-32"></div>
@@ -189,7 +189,7 @@ function App() {
                 Made with Love
               </h3>
               <p className="text-blue-600 font-medium">
-                For Gyandeep & Shirissha's Special Day
+                For Gyandeep & Shirisha's Special Day
               </p>
             </div>
             
